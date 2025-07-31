@@ -2,7 +2,7 @@
 package main
 
 // 导入包
-import "fmt"
+import . "fmt"
 
 // 常量定义
 const NAME_A = "hello"
@@ -13,7 +13,7 @@ var aa = "world"
 // main函数
 func main() {
 	var b string = "code"
-	fmt.Println(b)
-	fmt.Println(NAME_A)
-	fmt.Println(aa)
+	Println(b)
+	Println(NAME_A)
+	Println(aa)
 }

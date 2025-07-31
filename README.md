@@ -74,3 +74,53 @@ package是最基本的分发单位和工程管理中依赖关系的体现；
 要生成Go语言可执行程序，必须要有main的package包，且必须在该包下有main函数；
 
 同一路径下只能存在一个package，一个package可以拆成多个源文件组成；
+
+**注意在新增目录后要在根目录下执行``go mod init 目录名称``**，之后会在go.mod文件中新增一个module，此后就可以在文件中使用目录加名称的方式进行引入了。
+### import用法
+import语句可以用于导入源码文件所依赖的package包；
+
+import不得导入源码文件没有用到的package包；
+
+在编译时会按照import包的顺序进行编译导入，所有包都导入完成后才会对main中的常量和变量进行初始化，然后执行main中的init函数，最后执行main函数；
+
+import语法格式:
+```azure
+import "fmt"
+import "time"
+
+import (
+    "fmt"
+    "time"
+)
+
+```
+#### import别名用法
+点（.）操作的含义是：点（.）标识导入后，调用该包中函数时可以省略前缀包名称
+
+下划线（\_）操作的含义是：导入该包，但不导入整个包，而执行该包中的init函数，因而无法通过
+包名来调用包中的其他函数。使用下划线（\_）操作往往是为了注册包里的引擎，让外部可以方便地使用。
+```azure
+#  别名用法
+import (
+    helloPrint "fmt"
+)
+helloPrint.Println("a")
+
+# 导入点用法
+import . "fmt"
+Println("aa")
+
+# 下划线用法
+import _ "test/test"
+
+会执行test目录中test文件的init函数
+
+```
+
+
+
+
+
+
+
+

@@ -2,7 +2,10 @@
 package main
 
 //导入依赖包
-import "fmt"
+import (
+	helloPrint "fmt"
+	"time"
+)
 
 // 常量定义
 const NAME = "hello"
@@ -25,17 +28,18 @@ type Ilearn interface {
 
 // 函数定义
 func learnHello() {
-	fmt.Println("lean hello")
+	helloPrint.Println("lean hello")
 }
 
 // main()函数
 func main() {
 	learnHello()
-	fmt.Println(a)
-	fmt.Println(NAME)
+	helloPrint.Println(a)
+	helloPrint.Println(NAME)
 	var learn = Learn{
 		name: "Lili",
 		age:  18,
 	}
-	fmt.Println(learn.name, learn.age)
+	helloPrint.Println(learn.name, learn.age)
+	helloPrint.Println(time.Now())
 }
