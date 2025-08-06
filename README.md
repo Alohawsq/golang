@@ -28,11 +28,11 @@ Sublime text2、liteide、Goland
 
 | append    | bool       | type   | cap   | close   | complex |
 |----------|------------|--------|-------|---------|---------|
-| complex64   | complex128 | unit16 | copy  | false   | float32 |
-| float64     | imag       | int    | int8  | int16   | unit32  |
+| complex64   | complex128 | uint16 | copy  | false   | float32 |
+| float64     | imag       | int    | int8  | int16   | uint32  |
 | int32     | int64      | iota   | len   | make    | new     |
-| nil    | panic      | unit64 | print | println | real    |
-| recover | string     | TRUE   | unit  | unit8   | unitprt |
+| nil    | panic      | uint64 | print | println | real    |
+| recover | string     | TRUE   | unit  | uint8   | uintprt |
 
 ### 注释
 ```azure
@@ -116,11 +116,27 @@ import _ "test/test"
 会执行test目录中test文件的init函数
 
 ```
+## 数据类型
+- 数据类型的出现是为了把数据分成所需内存大小不同的数据，编程的时候需要用大数据的时候才需要申请大内存，就可以充分利用内存。
+- 布尔型的值只可以是常量true或者false。
+- 字符串类型string，编码统一为"UTF-8"。
 
-
-
-
-
-
-
-
+| 类型   | 名称         | 描述                                  |
+|------|------------|-------------------------------------| 
+| 整型   | uint8      | 无符号8位整型（0 - 256）                    |
+| 整型   | uint16     | 无符号16位整型（0 - 65535）                 |
+| 整型   | uint32     | 无符号32位整型（0 - 4294967295）            |
+| 整型   | uint64     | 无符号64位整型（0 - 18446744073709551615）  |
+| 整型   | int8       | 有符号8位整型 （-128 - 127）                |
+| 整型   | int16      | 有符号16位整型 （-32768 - 32767）           |
+| 整型   | int32      | 有符号32位整型 （-2147483648 - 2147483647） |
+| 整型   | int64      | 有符号64位整型 （-128 - 127）               |
+| 浮点型  | float32    | IEEE-754 32位浮点型数                    |
+| 浮点型  | float64    | IEEE-754 64位浮点型数                    |
+| 复数类型 | complex64  | 32位实数和虚数                            |
+| 复数类型 | complex128 | 64位实数和虚数                            |
+| 其他类型 | byte       | 类似uint8                             |
+| 其他类型 | rune       | 类似uint32                            |
+| 其他类型 | uint       | 32或64位                              |
+| 其他类型 | int        | 与uint一样大小                           |
+| 其他类型 | uintptr    | 无符号整型，用于存放一个指针            |
